@@ -1,0 +1,21 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-container
+    environment:
+        MYSQL_ROOT_PASSWORD: 'toor'
+        MYSQL_DATABASE: 'app_lab'
+        MYSQL_USER: 'nazar'
+        MYSQL_PASSWORD: 'pass'
+        MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+networks:
+    applab:
+        driver: bridge
+volumes:
+  mysql_data:
